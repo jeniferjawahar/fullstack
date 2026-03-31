@@ -1,0 +1,17 @@
+package com.example.issue_backend.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record AuthRegisterRequest(
+		@Email(message = "email must be valid")
+		@NotBlank(message = "email is required")
+		String email,
+
+		@NotBlank(message = "password is required")
+		@Size(min = 6, message = "password must be at least 6 characters")
+		String password
+) {
+}
+
